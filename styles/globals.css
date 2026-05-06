@@ -97,10 +97,7 @@ a {
 
 .parallax-bg {
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 112vh;
+  inset: -12vh 0;
   z-index: -2;
   background-image: var(--parallax-overlay), var(--parallax-image);
   background-position: center;
@@ -408,7 +405,7 @@ a {
   }
 
   .parallax-bg {
-    height: 112lvh;
+    inset: -18vh 0;
     background-position: center top;
   }
 
