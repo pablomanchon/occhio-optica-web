@@ -89,25 +89,10 @@ a {
   font-weight: 800;
 }
 
-.parallax-section {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.parallax-bg {
-  position: absolute;
-  inset: -12vh 0;
-  z-index: -2;
-  background-image: var(--parallax-overlay), var(--parallax-image);
+.parallax {
   background-position: center;
   background-size: cover;
-  will-change: transform;
-}
-
-.parallax-content {
-  position: relative;
-  z-index: 1;
+  background-attachment: fixed;
 }
 
 .hero,
@@ -118,17 +103,6 @@ a {
   padding: 130px 22px 90px;
   text-align: center;
   color: #ffffff;
-}
-
-.hero .parallax-content,
-.final-panel .parallax-content {
-  display: grid;
-  width: 100%;
-  place-items: center;
-}
-
-.editorial-panel .parallax-content {
-  width: min(620px, 100%);
 }
 
 .hero-content {
@@ -402,25 +376,18 @@ a {
   .final-panel {
     min-height: 92vh;
     padding-top: 118px;
-  }
-
-  .parallax-bg {
-    inset: -18vh 0;
     background-position: center top;
   }
 
   .hero h1,
   .final-panel h2 {
-    width: min(340px, 100%);
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 34px;
+    font-size: 40px;
     line-height: 1.03;
   }
 
   .intro {
-    width: min(285px, 100%);
-    font-size: 15px;
+    width: min(320px, 100%);
+    font-size: 16px;
   }
 
   .product-section h2,
