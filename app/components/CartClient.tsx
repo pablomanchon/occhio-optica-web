@@ -117,7 +117,7 @@ export default function CartClient() {
     return (
       <div className="store-empty">
         <h1>Tu carrito esta vacio</h1>
-        <p>Elegí productos reales del catálogo de Occhio y volvé para finalizar.</p>
+        <p>Elegi productos reales del catalogo de Occhio y volve para finalizar.</p>
         <Link className="dark-button" href="/tienda">
           Ver tienda
         </Link>
@@ -165,7 +165,7 @@ export default function CartClient() {
           <input name="email" type="email" required />
         </label>
         <label>
-          Teléfono
+          Telefono
           <input name="telefono" />
         </label>
         <div className="checkout-total">

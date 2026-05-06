@@ -4,19 +4,25 @@ import { Product } from '../../lib/store'
 import AddToCartButton from './AddToCartButton'
 
 export default function ProductCard({ product }: { product: Product }) {
+  const isLowStock = product.stock <= 5
+
   return (
     <article className="store-card">
       <Link className="store-card-media" href={`/productos/${product.id}`}>
+        <em>{product.tipo}</em>
         <span>{product.nombre.slice(0, 2).toUpperCase()}</span>
       </Link>
       <div className="store-card-body">
-        <p>{product.tipo}</p>
+        <div className="store-card-meta">
+          <p>{product.codigo ?? 'Sin codigo'}</p>
+          {product.puntos > 0 && <span>{product.puntos} pts</span>}
+        </div>
         <h3>
           <Link href={`/productos/${product.id}`}>{product.nombre}</Link>
         </h3>
         <strong>{formatCurrency(Number(product.precio))}</strong>
-        <small>
-          Stock: {product.stock} {product.puntos > 0 ? `- ${product.puntos} pts` : ''}
+        <small className={isLowStock ? 'stock-badge stock-low' : 'stock-badge'}>
+          {isLowStock ? `Ultimas ${product.stock} unidades` : `${product.stock} en stock`}
         </small>
         <AddToCartButton productId={product.id} stock={product.stock} />
       </div>

@@ -21,12 +21,30 @@ export default async function StorePage() {
       </header>
 
       <section className="store-hero">
-        <p>Catálogo real de {commerce.nombre}</p>
-        <h1>Comprar anteojos y accesorios en Occhio</h1>
-        <span>
-          Mostrando únicamente productos del comercio asociado a{' '}
-          <strong>{commerce.id}</strong>.
-        </span>
+        <div className="store-hero-copy">
+          <p>Catalogo real de Occhio</p>
+          <h1>Anteojos, sol y accesorios listos para elegir.</h1>
+          <span>
+            Productos con precio y stock actualizados desde Supabase para la tienda
+            Occhio.
+          </span>
+        </div>
+        <div className="store-hero-art" aria-hidden="true">
+          <span />
+          <strong>occhio</strong>
+        </div>
+      </section>
+
+      <section className="store-toolbar" aria-label="Resumen de tienda">
+        <div>
+          <strong>{products.length}</strong>
+          <span>productos disponibles</span>
+        </div>
+        <div>
+          <strong>{commerce.sistema_puntos_activo ? 'Activo' : 'No activo'}</strong>
+          <span>sistema de puntos</span>
+        </div>
+        <Link href="/carrito">Ver carrito</Link>
       </section>
 
       {products.length ? (
@@ -38,7 +56,7 @@ export default async function StorePage() {
       ) : (
         <section className="store-empty">
           <h2>No hay productos disponibles</h2>
-          <p>El catálogo está conectado a Supabase, pero no hay stock activo para mostrar.</p>
+          <p>El catalogo esta conectado a Supabase, pero no hay stock activo para mostrar.</p>
         </section>
       )}
     </main>
