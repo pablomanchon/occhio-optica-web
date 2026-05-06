@@ -13,12 +13,10 @@ function getSupabaseProjectRef() {
 }
 
 export function getSupabaseUrl() {
-  const url =
-    process.env.NEXT_PUBLIC_SUPABASE_URL ??
-    process.env.VITE_SUPABASE_URL
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
 
   if (!url) {
-    throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or VITE_SUPABASE_URL')
+    throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL')
   }
 
   return url
