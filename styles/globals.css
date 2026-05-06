@@ -379,6 +379,10 @@ a {
     background-position: center top;
   }
 
+  .hero-primary {
+    background-attachment: scroll;
+  }
+
   .hero h1,
   .final-panel h2 {
     font-size: 40px;

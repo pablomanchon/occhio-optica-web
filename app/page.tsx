@@ -60,7 +60,7 @@ export default function Home() {
 
       <section
         id="inicio"
-        className="hero parallax"
+        className="hero hero-primary parallax"
         style={{
           backgroundImage:
             "linear-gradient(rgba(24, 25, 24, .38), rgba(24, 25, 24, .68)), url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1800&q=90')",
