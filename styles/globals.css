@@ -100,7 +100,7 @@ a {
   top: 0;
   right: 0;
   left: 0;
-  height: 112svh;
+  height: 112vh;
   z-index: -2;
   background-image: var(--parallax-overlay), var(--parallax-image);
   background-position: center;
@@ -403,12 +403,12 @@ a {
 
   .hero,
   .final-panel {
-    min-height: 100svh;
+    min-height: 92vh;
     padding-top: 118px;
   }
 
   .parallax-bg {
-    height: 112svh;
+    height: 112lvh;
     background-position: center top;
   }
 
