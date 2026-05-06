@@ -41,10 +41,8 @@ export default function ParallaxSection({
 
       const rect = section.getBoundingClientRect()
       const viewport = window.innerHeight || 1
-      const sectionCenter = rect.top + rect.height / 2
-      const viewportCenter = viewport / 2
-      const distance = (sectionCenter - viewportCenter) / viewport
-      const y = Math.max(-72, Math.min(72, distance * -42))
+      const maxPinnedOffset = Math.max(0, rect.height - viewport)
+      const y = Math.max(0, Math.min(maxPinnedOffset, -rect.top))
 
       bg.style.transform = `translate3d(0, ${y}px, 0) scale(1.08)`
     }
