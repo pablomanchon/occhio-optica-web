@@ -54,6 +54,7 @@ export default function Home() {
         <nav>
           <a href="#coleccion">Coleccion</a>
           <a href="#servicios">Servicios</a>
+          <a href="/tienda">Tienda</a>
           <a href="#turnos">Turnos</a>
         </nav>
       </header>
@@ -79,6 +80,9 @@ export default function Home() {
           </p>
           <a className="outline-button" href="#turnos">
             Reservar examen visual
+          </a>
+          <a className="outline-button secondary-action" href="/tienda">
+            Comprar online
           </a>
         </div>
       </section>
