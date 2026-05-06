@@ -1,3 +1,5 @@
+import ParallaxSection from './ParallaxSection'
+
 const collections = [
   {
     name: 'Receta diaria',
@@ -58,13 +60,11 @@ export default function Home() {
         </nav>
       </header>
 
-      <section
+      <ParallaxSection
         id="inicio"
-        className="hero parallax"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(24, 25, 24, .38), rgba(24, 25, 24, .68)), url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1800&q=90')",
-        }}
+        className="hero"
+        image="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1800&q=90"
+        overlay="linear-gradient(rgba(24, 25, 24, .38), rgba(24, 25, 24, .68))"
       >
         <div className="hero-content">
           <p className="eyebrow">occhio optica</p>
@@ -81,7 +81,7 @@ export default function Home() {
             Reservar examen visual
           </a>
         </div>
-      </section>
+      </ParallaxSection>
 
       <section id="coleccion" className="product-section">
         <p className="section-kicker">Vidriera occhio</p>
@@ -98,12 +98,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className="editorial-panel parallax"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, rgba(43, 39, 35, .86), rgba(43, 39, 35, .34)), url('https://images.unsplash.com/photo-1512099053734-e6767b535838?auto=format&fit=crop&w=1800&q=90')",
-        }}
+      <ParallaxSection
+        className="editorial-panel"
+        image="https://images.unsplash.com/photo-1512099053734-e6767b535838?auto=format&fit=crop&w=1800&q=90"
+        overlay="linear-gradient(90deg, rgba(43, 39, 35, .86), rgba(43, 39, 35, .34))"
       >
         <div className="panel-copy">
           <p className="eyebrow">Frente a frente</p>
@@ -113,7 +111,7 @@ export default function Home() {
             cotidiano antes de recomendar un par.
           </p>
         </div>
-      </section>
+      </ParallaxSection>
 
       <section className="lookbook">
         <div className="lookbook-copy">
@@ -151,13 +149,11 @@ export default function Home() {
         ))}
       </section>
 
-      <section
+      <ParallaxSection
         id="turnos"
-        className="final-panel parallax"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(10, 12, 13, .42), rgba(10, 12, 13, .78)), url('https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1800&q=90')",
-        }}
+        className="final-panel"
+        image="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1800&q=90"
+        overlay="linear-gradient(rgba(10, 12, 13, .42), rgba(10, 12, 13, .78))"
       >
         <div className="hero-content">
           <p className="eyebrow">Turnos y consultas</p>
@@ -174,7 +170,7 @@ export default function Home() {
             Llamar a la optica
           </a>
         </div>
-      </section>
+      </ParallaxSection>
     </main>
   )
 }
