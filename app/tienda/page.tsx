@@ -22,11 +22,10 @@ export default async function StorePage() {
 
       <section className="store-hero">
         <div className="store-hero-copy">
-          <p>Catalogo real de Occhio</p>
+          <p>{commerce.nombre}</p>
           <h1>Anteojos, sol y accesorios listos para elegir.</h1>
           <span>
-            Productos con precio y stock actualizados desde Supabase para la tienda
-            Occhio.
+            {commerce.direccion ?? 'Tienda online con stock y precios en tiempo real.'}
           </span>
         </div>
         <div className="store-hero-art" aria-hidden="true">

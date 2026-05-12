@@ -9,7 +9,7 @@ type ApiKey = {
 let cachedServiceRoleKey: string | null = null
 
 function getSupabaseProjectRef() {
-  return process.env.SUPABASE_PROJECT_REF ?? 'madhnubzwfdtfbolyymj'
+  return process.env.SUPABASE_PROJECT_REF ?? 'xbfhomcrcexlwecawytm'
 }
 
 export function getSupabaseUrl() {

@@ -10,6 +10,7 @@ export type Product = {
   precio: number
   stock: number
   puntos: number
+  imagen_url: string | null
 }
 
 export type Commerce = {
@@ -27,6 +28,18 @@ export type CartInputItem = {
 
 export async function getCommerce() {
   const supabase = await createSupabaseAdmin()
+
+  const directId = process.env.NEXT_PUBLIC_KIOSCO_ID ?? process.env.KIOSCO_ID
+  if (directId) {
+    const { data, error } = await supabase
+      .from('kioscos')
+      .select('id,nombre,telefono,direccion,sistema_puntos_activo')
+      .eq('id', directId)
+      .single()
+
+    if (!error && data) return data as Commerce
+  }
+
   const { data, error } = await supabase
     .from('kioscos')
     .select('id,nombre,telefono,direccion,sistema_puntos_activo')
@@ -34,12 +47,11 @@ export async function getCommerce() {
     .single()
 
   if (error) {
-    console.error(error)
     return {
       id: FALLBACK_KIOSCO_ID,
-      nombre: 'occhio',
-      telefono: null,
-      direccion: null,
+      nombre: 'Occhio Optica',
+      telefono: '+54 9 11 0000-0000',
+      direccion: 'Av. Corrientes 1234, Buenos Aires',
       sistema_puntos_activo: true,
     } satisfies Commerce
   }
@@ -52,7 +64,7 @@ export async function listProducts(limit = 48) {
   const supabase = await createSupabaseAdmin()
   const { data, error } = await supabase
     .from('producto')
-    .select('id,tipo,codigo,nombre,descripcion,precio,stock,puntos')
+    .select('id,tipo,codigo,nombre,descripcion,precio,stock,puntos,imagen_url')
     .eq('kiosco_id', commerce.id)
     .eq('deleted', false)
     .gt('stock', 0)
@@ -71,7 +83,7 @@ export async function getProduct(id: number) {
   const supabase = await createSupabaseAdmin()
   const { data, error } = await supabase
     .from('producto')
-    .select('id,tipo,codigo,nombre,descripcion,precio,stock,puntos')
+    .select('id,tipo,codigo,nombre,descripcion,precio,stock,puntos,imagen_url')
     .eq('kiosco_id', commerce.id)
     .eq('deleted', false)
     .eq('id', id)
@@ -93,7 +105,7 @@ export async function getProductsByIds(ids: number[]) {
   const supabase = await createSupabaseAdmin()
   const { data, error } = await supabase
     .from('producto')
-    .select('id,tipo,codigo,nombre,descripcion,precio,stock,puntos')
+    .select('id,tipo,codigo,nombre,descripcion,precio,stock,puntos,imagen_url')
     .eq('kiosco_id', commerce.id)
     .eq('deleted', false)
     .in('id', ids)

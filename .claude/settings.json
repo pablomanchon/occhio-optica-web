@@ -7,7 +7,14 @@
       "Bash(taskkill /PID 11792 /F)",
       "PowerShell(Stop-Process -Id 11792 -Force)",
       "Bash(git restore *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "PowerShell(Rename-Item -Path \"C:\\\\Users\\\\PabloM\\\\Desktop\\\\Programacion\\\\nextjs-app\" -NewName \"E-commerce Occhio\")",
+      "Read(//c/Users/PabloM/.claude/projects/c--Users-PabloM-Desktop-Programacion-E-commerce-Occhio/memory/**)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\PabloM\\.claude\\projects\\c--Users-PabloM-Desktop-Programacion-E-commerce-Occhio\\memory"
     ]
   }
 }

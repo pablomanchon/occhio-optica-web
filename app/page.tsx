@@ -1,33 +1,7 @@
-const collections = [
-  {
-    name: 'Receta diaria',
-    detail: 'Marcos livianos para todos los dias',
-    price: 'Desde $89.000',
-    image:
-      'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=85',
-  },
-  {
-    name: 'Sol premium',
-    detail: 'Proteccion UV400 y diseno urbano',
-    price: 'Desde $76.000',
-    image:
-      'https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=900&q=85',
-  },
-  {
-    name: 'Blue filter',
-    detail: 'Cristales para pantallas y oficina',
-    price: 'Desde $62.000',
-    image:
-      'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85',
-  },
-  {
-    name: 'Lineas de autor',
-    detail: 'Modelos seleccionados en local',
-    price: 'Desde $98.000',
-    image:
-      'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=900&q=85',
-  },
-]
+import { listProducts } from '../lib/store'
+import { formatCurrency } from '../lib/commerce'
+
+export const dynamic = 'force-dynamic'
 
 const services = [
   ['Receta y sol', 'Anteojos para uso diario, lectura, manejo y exterior.'],
@@ -36,7 +10,15 @@ const services = [
   ['Ajuste en local', 'Calibracion, limpieza y mantenimiento de tus anteojos.'],
 ]
 
-export default function Home() {
+const TIPO_LABEL: Record<string, string> = {
+  receta: 'Receta',
+  sol: 'Sol',
+  accesorio: 'Accesorio',
+}
+
+export default async function Home() {
+  const products = await listProducts(4)
+
   return (
     <main className="site-shell">
       <header className="topbar" aria-label="Navegacion principal">
@@ -91,14 +73,23 @@ export default function Home() {
         <p className="section-kicker">Vidriera occhio</p>
         <h2>Elegidos del local</h2>
         <div className="product-grid">
-          {collections.map((item) => (
-            <article className="product-card" key={item.name}>
-              <img src={item.image} alt={item.name} />
-              <p>{item.detail}</p>
-              <h3>{item.name}</h3>
-              <span>{item.price}</span>
+          {products.map((product) => (
+            <article className="product-card" key={product.id}>
+              {product.imagen_url ? (
+                <img src={product.imagen_url} alt={product.nombre} />
+              ) : (
+                <div className="product-card-placeholder" aria-hidden="true">
+                  <span>{TIPO_LABEL[product.tipo] ?? product.tipo}</span>
+                </div>
+              )}
+              <p>{product.descripcion ?? TIPO_LABEL[product.tipo] ?? product.tipo}</p>
+              <h3>{product.nombre}</h3>
+              <span>{formatCurrency(product.precio)}</span>
             </article>
           ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <a className="dark-button" href="/tienda">Ver catalogo completo</a>
         </div>
       </section>
 

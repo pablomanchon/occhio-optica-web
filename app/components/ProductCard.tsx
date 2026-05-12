@@ -8,9 +8,16 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="store-card">
-      <Link className="store-card-media" href={`/productos/${product.id}`}>
+      <Link
+        className={`store-card-media${product.imagen_url ? ' has-image' : ''}`}
+        href={`/productos/${product.id}`}
+      >
         <em>{product.tipo}</em>
-        <span>{product.nombre.slice(0, 2).toUpperCase()}</span>
+        {product.imagen_url ? (
+          <img src={product.imagen_url} alt={product.nombre} />
+        ) : (
+          <span>{product.nombre.slice(0, 2).toUpperCase()}</span>
+        )}
       </Link>
       <div className="store-card-body">
         <div className="store-card-meta">

@@ -6,7 +6,7 @@ export const OWNER_AUTH_ID =
 export const FALLBACK_KIOSCO_ID =
   process.env.NEXT_PUBLIC_KIOSCO_ID ??
   process.env.KIOSCO_ID ??
-  'a1362a1a-5d4d-4d79-b289-b18ab0cd957e'
+  '573c9044-3174-4615-9f33-663c5a2ea4d8'
 
 export const DEFAULT_PAYMENT_METHOD_ID =
   process.env.ECOMMERCE_DEFAULT_PAYMENT_METHOD_ID ?? 'DEFAULT_PENDIENTE'
